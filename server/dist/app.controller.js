@@ -15,7 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppController = void 0;
 const common_1 = require("@nestjs/common");
 const create_user_dto_1 = require("./DTOUser/create-user.dto");
-const update_user_dto_1 = require("./DTOUser/update-user.dto");
 const app_service_1 = require("./app.service");
 let AppController = class AppController {
     constructor(service) {
@@ -35,9 +34,9 @@ let AppController = class AppController {
     async Create(createUser) {
         return await this.service.createUser(createUser);
     }
-    async Update(id, updateUser) {
-        console.log(updateUser);
-        return await this.service.updateUser(id, updateUser);
+    async Update(id, body) {
+        console.log(id, body);
+        return await this.service.updateUser(id, body);
     }
     async Delete(id) {
         return await this.service.deleteUser(id);
@@ -64,15 +63,15 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "Create", null);
 __decorate([
-    (0, common_1.Put)('updateUser/:id'),
+    (0, common_1.Patch)('updateUser/:id'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, update_user_dto_1.UpdateUserDTO]),
+    __metadata("design:paramtypes", [String, Object]),
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "Update", null);
 __decorate([
-    (0, common_1.Patch)('deleteUser/:id'),
+    (0, common_1.Delete)('deleteUser/:id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),

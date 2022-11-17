@@ -7,14 +7,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
+require('dotenv').config();
 const common_1 = require("@nestjs/common");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
 const user_schema_1 = require("./schemas/user.schema");
-const DB = 'mongodb+srv://Aura-Owner:NestApp@crud.8tuv9.mongodb.net/?retryWrites=true&w=majority';
-mongoose_2.default.connect(DB).then(() => {
+mongoose_2.default.connect(process.env.MONGO_URI).then(() => {
     console.log('Prisijungta prie DB...:)');
 });
 let AppModule = class AppModule {
@@ -22,7 +22,7 @@ let AppModule = class AppModule {
 AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            mongoose_1.MongooseModule.forRoot(DB),
+            mongoose_1.MongooseModule.forRoot(process.env.MONGO_URI),
             mongoose_1.MongooseModule.forFeature([{ name: 'User', schema: user_schema_1.UserSchema }]),
         ],
         controllers: [app_controller_1.AppController],

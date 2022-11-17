@@ -30,11 +30,12 @@ let AppService = class AppService {
         console.log(createUser);
         return await new this.userModel(Object.assign({}, createUser)).save();
     }
-    async updateUser(id, updateUser) {
-        console.info(id, updateUser);
-        return await this.userModel.findByIdAndUpdate({ _id: id }, { $set: Object.assign({}, updateUser) });
+    async updateUser(id, data) {
+        console.log(id, data);
+        return await (await this.userModel.findByIdAndUpdate({ _id: id }, { $set: Object.assign({}, data) })).save();
     }
     async deleteUser(id) {
+        console.log(id);
         return await this.userModel.deleteOne({ _id: id });
     }
 };

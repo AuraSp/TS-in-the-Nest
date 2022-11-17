@@ -5,11 +5,10 @@ import {
   Get,
   Param,
   Post,
-  Patch,
-  Put,
+  Patch
 } from '@nestjs/common';
 import { CreateUserDTO } from './DTOUser/create-user.dto';
-import { UpdateUserDTO } from './DTOUser/update-user.dto';
+import { BaseUserDTO } from './DTOUser/base-user.dto';
 import { AppService } from './app.service';
 
 @Controller('users') //@Injectable
@@ -35,19 +34,13 @@ export class AppController {
     return await this.service.createUser(createUser);
   }
 
-  // @Patch('updateUser/:id')
-  // async Update(@Param('id') id: string, @Body() updateUser: UpdateUserDTO) {
-  //   console.log(updateUser);
-  //   return await this.service.updateUser(id, updateUser);
-  // }
-
-  @Put('updateUser/:id')
-  async Update(@Param('id') id: string, @Body() updateUser: UpdateUserDTO) {
-    console.log(updateUser);
-    return await this.service.updateUser(id, updateUser);
+  @Patch('updateUser/:id')
+  async Update(@Param('id') id: string, @Body() body: any) {
+    console.log(id, body);
+    return await this.service.updateUser(id, body);
   }
 
-  @Patch('deleteUser/:id')
+  @Delete('deleteUser/:id')
   async Delete(@Param('id') id: string) {
     return await this.service.deleteUser(id);
   }
