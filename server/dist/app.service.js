@@ -32,7 +32,7 @@ let AppService = class AppService {
     }
     async updateUser(id, data) {
         console.log(id, data);
-        return await (await this.userModel.findByIdAndUpdate({ _id: id }, { $set: Object.assign({}, data) })).save();
+        return await (this.userModel.findByIdAndUpdate({ _id: id }, { $set: Object.assign({}, data) }));
     }
     async deleteUser(id) {
         console.log(id);
