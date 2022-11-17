@@ -1,10 +1,10 @@
+<p align='center'>TS-in-the-Nest</p>
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
 
-<h3 align='center'>TS-in-the-Nest</h3>
-<p align="center">Simple API for Back End with validator to learn TS in the Nest</p>
+  <p align="center">Simple API for Back End with validator to learn TS in the Nest</p>
 
 <details>
 <summary>Table of contents</summary>
@@ -21,16 +21,18 @@
       <ul>
         <li><a href="#nodejs--npm">Getting Node.js/NPM</a> (***skip this, if Node.js and npm is installed***)</li>
         <li><a href="#project">Project Cloning</a></li>
-        <li><a href="#run-the-server">Running Application</a></li>
+        <li><a href="#run-the-application">Running Application</a></li>
       </ul>
     </li>
     <li><a href="#used-development-tools">Included Development Tools</a></li>
+    <li><a href="#contributors">Contributors</a></li>
   </ul>
   
 </details>
 
 ## Description
 Server side project with CRUD methods
+<p align="right">(<a href="#readme-top">Back to top</a>)</p>
 
 ## Requirements To Run The Application
 [![VSCode][VS CODE]][VSCode-url]\
